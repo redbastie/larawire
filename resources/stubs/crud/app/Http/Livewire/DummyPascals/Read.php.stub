@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Livewire\DummyPascals;
+
+use App\Models\DummyPascal;
+use Livewire\Component;
+
+class Read extends Component
+{
+    public $dummyCamel;
+    protected $listeners = ['showReadDummyPascalModal'];
+
+    public function render()
+    {
+        return view('livewire.dummy-slugs.read');
+    }
+
+    public function showReadDummyPascalModal(DummyPascal $dummyCamel)
+    {
+        $this->dummyCamel = $dummyCamel;
+
+        $this->emit('showModal', 'read-dummy-slug-modal');
+    }
+}

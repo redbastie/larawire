@@ -1,0 +1,54 @@
+@section('title', __('Dummy Titles'))
+
+<div>
+    <h1>@yield('title')</h1>
+
+    <div class="row justify-content-between">
+        <div class="col-md-auto mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-search"></i></span></div>
+                <input type="search" class="form-control" placeholder="{{ __('Search') }}" wire:model.debounce.500ms="search">
+            </div>
+        </div>
+        <div class="col-md-auto mb-3">
+            <button type="button" class="btn btn-primary" wire:click="$emit('showCreateDummyPascalModal')">
+                <i class="far fa-plus"></i> {{ __('Create Dummy Title') }}
+            </button>
+        </div>
+    </div>
+
+    <div class="list-group mb-3">
+        @forelse($dummyCamels as $dummyCamel)
+            <div class="list-group-item list-group-item-action">
+                <div class="row align-items-center">
+                    <div class="col-md mb-2 mb-md-0">
+                        {{ $dummyCamel->name }}
+                    </div>
+                    <div class="col-md-auto mr-n2">
+                        <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Read') }}"
+                                wire:click="$emit('showReadDummyPascalModal', {{ $dummyCamel->id }})">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Update') }}"
+                                wire:click="$emit('showUpdateDummyPascalModal', {{ $dummyCamel->id }})">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        @livewire('dummy-slugs.delete', ['dummyCamel' => $dummyCamel->id], key(uniqid()))
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="list-group-item">
+                {{ __('No dummy titles to display.') }}
+            </div>
+        @endforelse
+    </div>
+
+    <div class="overflow-auto">
+        {{ $dummyCamels->links('livewire::bootstrap') }}
+    </div>
+
+    @livewire('dummy-slugs.create')
+    @livewire('dummy-slugs.read')
+    @livewire('dummy-slugs.update')
+</div>

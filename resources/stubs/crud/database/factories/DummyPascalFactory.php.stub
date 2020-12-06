@@ -1,0 +1,16 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\DummyPascal;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class DummyPascalFactory extends Factory
+{
+    protected $model = DummyPascal::class;
+
+    public function definition()
+    {
+        return app($this->model)->definition($this->faker);
+    }
+}

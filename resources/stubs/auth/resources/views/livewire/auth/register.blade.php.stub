@@ -1,0 +1,38 @@
+@section('title', __('Register'))
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">@yield('title')</div>
+            <div class="card-body">
+                <form wire:submit.prevent="register">
+                    <div class="form-group">
+                        <label>{{ __('Name') }}</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.defer="data.name">
+                        @error('name')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ __('Email') }}</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" wire:model.defer="data.email">
+                        @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ __('Password') }}</label>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" wire:model.defer="data.password">
+                        @error('password')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ __('Confirm Password') }}</label>
+                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" wire:model.defer="data.password_confirmation">
+                        @error('password_confirmation')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-primary">{{ __('Register') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

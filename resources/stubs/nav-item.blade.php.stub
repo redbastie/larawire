@@ -1,0 +1,3 @@
+                        <li class="nav-item">
+                            <a href="{{ route('dummy-slugs') }}" class="nav-link">{{ __('Dummy Titles') }}</a>
+                        </li>

@@ -1,0 +1,4 @@
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-pro/css/all.css';
+@import '../css/app.css';

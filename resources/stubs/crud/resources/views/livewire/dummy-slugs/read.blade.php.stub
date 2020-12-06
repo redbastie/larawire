@@ -1,0 +1,31 @@
+<div id="read-dummy-slug-modal" class="modal fade" tabindex="-1" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ __('Dummy Title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @isset($dummyCamel)
+                    @foreach($dummyCamel->toArray() as $attribute => $value)
+                        <div class="small text-muted">
+                            {{ Str::of($attribute)->replace('_', ' ')->title() }}
+                        </div>
+
+                        @if(is_array($value))
+                            <pre>{{ json_encode($value, JSON_PRETTY_PRINT) }}</pre>
+                        @else
+                            <div class="mb-3">{{ $value }}</div>
+                        @endif
+                    @endforeach
+                @endisset
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

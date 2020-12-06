@@ -1,0 +1,14 @@
+$body-bg: #f8f9fa;
+$card-cap-bg: #ffffff;
+$input-group-addon-bg: #ffffff;
+$input-placeholder-color: #adb5bd;
+$font-size-base: 0.9rem;
+$border-radius: 0.5rem;
+$border-radius-sm: 0.5rem;
+$border-radius-lg: 0.5rem;
+$custom-checkbox-indicator-border-radius: 0.25rem;
+$navbar-toggler-padding-x: 0;
+$navbar-toggler-padding-0: 0;
+$navbar-dark-toggler-border-color: transparent;
+$navbar-light-toggler-border-color: transparent;
+$enable-validation-icons: false;

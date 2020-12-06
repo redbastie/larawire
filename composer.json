@@ -1,0 +1,31 @@
+{
+    "name": "redbastie/larawire",
+    "description": "Laravel + Livewire + Bootstrap auth UI & CRUD scaffolding.",
+    "homepage": "https://github.com/redbastie/larawire",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Dion",
+            "email": "redbastie@icloud.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "barryvdh/laravel-ide-helper": "^2.0",
+        "doctrine/dbal": "^2.0",
+        "laravel/framework": "^8.0",
+        "livewire/livewire": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Redbastie\\Larawire\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Redbastie\\Larawire\\Providers\\LarawireServiceProvider"
+            ]
+        }
+    }
+}

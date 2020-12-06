@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Livewire\Auth;
+
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
+use Redbastie\Larawire\Traits\HandlesData;
+
+class Register extends Component
+{
+    use HandlesData;
+
+    public $routeUri = '/register';
+    public $routeName = 'register';
+    public $routeMiddleware = 'guest';
+
+    public function render()
+    {
+        return view('livewire.auth.register');
+    }
+
+    public function register()
+    {
+        $validatedData = $this->validateData([
+            'name' => ['required'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'confirmed'],
+        ]);
+
+        $user = User::create($validatedData);
+
+        Auth::login($user, true);
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+}

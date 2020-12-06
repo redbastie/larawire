@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>@hasSection('title') @yield('title') | @endif {{ config('app.name', 'Laravel') }}</title>
+
+    @livewireScripts
+    <script src="{{ asset('js/app.js') }}?version={{ config('app.version') }}"></script>
+    @stack('scripts')
+
+    @livewireStyles
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?version={{ config('app.version') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a href="{{ url('/') }}" class="navbar-brand">
+                <i class="fab fa-laravel text-primary"></i> {{ config('app.name', 'Laravel') }}
+            </a>
+
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-nav-dropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navbar-nav-dropdown" class="collapse navbar-collapse">
+                @guest
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link">{{ __('Login') }}</a>
+                        </li>
+
+                        @if(Route::has('register'))
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="nav-link">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    </ul>
+                @else
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/home') }}" class="nav-link">{{ __('Home') }}</a>
+                        </li>
+                        {{--crud command hook--}}
+                        <li class="nav-item">
+                            <a href="{{ route('vehicles') }}" class="nav-link">{{ __('Vehicles') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('users') }}" class="nav-link">{{ __('Users') }}</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="far fa-user-circle"></i> {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#profile-modal">
+                                    {{ __('Profile') }}
+                                </button>
+                                @livewire('auth.logout')
+                            </div>
+                        </li>
+                    </ul>
+                @endif
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        {{ $slot }}
+    </div>
+
+    @auth
+        @livewire('auth.profile')
+    @endauth
+</body>
+</html>

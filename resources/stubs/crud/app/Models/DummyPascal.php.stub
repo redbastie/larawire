@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Models;
+
+use Faker\Generator;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Validation\Rule;
+use Redbastie\Larawire\Traits\FillsColumns;
+
+class DummyPascal extends Model
+{
+    use HasFactory, FillsColumns;
+
+    public function migration(Blueprint $table)
+    {
+        $table->id();
+        $table->string('name')->unique();
+        $table->timestamps();
+    }
+
+    public function definition(Generator $faker)
+    {
+        return [
+            'name' => $faker->unique()->name,
+        ];
+    }
+
+    public function rules()
+    {
+        return [
+            'name' => ['required', Rule::unique('dummy_snakes')->ignore($this->id)],
+        ];
+    }
+}

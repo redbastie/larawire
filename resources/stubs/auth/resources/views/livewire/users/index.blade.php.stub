@@ -1,0 +1,55 @@
+@section('title', __('Users'))
+
+<div>
+    <h1>@yield('title')</h1>
+
+    <div class="row justify-content-between">
+        <div class="col-md-auto mb-3">
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-search"></i></span></div>
+                <input type="search" class="form-control" placeholder="{{ __('Search') }}" wire:model.debounce.500ms="search">
+            </div>
+        </div>
+        <div class="col-md-auto mb-3">
+            <button type="button" class="btn btn-primary" wire:click="$emit('showCreateUserModal')">
+                <i class="far fa-plus"></i> {{ __('Create User') }}
+            </button>
+        </div>
+    </div>
+
+    <div class="list-group mb-3">
+        @forelse($users as $user)
+            <div class="list-group-item list-group-item-action">
+                <div class="row align-items-center">
+                    <div class="col-md mb-2 mb-md-0">
+                        <div>{{ $user->name }}</div>
+                        <div class="small text-muted">{{ $user->email }}</div>
+                    </div>
+                    <div class="col-md-auto mx-n1">
+                        <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Read') }}"
+                                wire:click="$emit('showReadUserModal', {{ $user->id }})">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Update') }}"
+                                wire:click="$emit('showUpdateUserModal', {{ $user->id }})">
+                            <i class="far fa-edit"></i>
+                        </button>
+                        @livewire('users.delete', ['user' => $user->id], key(uniqid()))
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="list-group-item">
+                {{ __('No users to display.') }}
+            </div>
+        @endforelse
+    </div>
+
+    <div class="overflow-auto">
+        {{ $users->links('livewire::bootstrap') }}
+    </div>
+
+    @livewire('users.create')
+    @livewire('users.read')
+    @livewire('users.update')
+</div>

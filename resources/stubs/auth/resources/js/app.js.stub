@@ -1,0 +1,9 @@
+require('./bootstrap');
+
+Livewire.on('showModal', (id) => {
+    $('#' + id).modal('show');
+});
+
+Livewire.on('hideModal', (id) => {
+    $('#' + id).modal('hide');
+});

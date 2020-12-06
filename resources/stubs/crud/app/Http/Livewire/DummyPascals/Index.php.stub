@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Livewire\DummyPascals;
+
+use App\Models\DummyPascal;
+use Livewire\Component;
+use Livewire\WithPagination;
+use Redbastie\Larawire\Traits\UpdatesSearch;
+
+class Index extends Component
+{
+    use UpdatesSearch, WithPagination;
+
+    public $routeUri = '/dummy-slugs';
+    public $routeName = 'dummy-slugs';
+    public $routeMiddleware = 'auth';
+    public $search;
+    protected $listeners = ['$refresh'];
+
+    public function render()
+    {
+        return view('livewire.dummy-slugs.index', [
+            'dummyCamels' => $this->query()->paginate(),
+        ]);
+    }
+
+    public function query()
+    {
+        $query = DummyPascal::query();
+
+        if ($this->search) {
+            $query->where('name', 'like', '%' . $this->search . '%');
+        }
+
+        return $query->orderBy('name');
+    }
+}
