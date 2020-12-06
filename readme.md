@@ -2,6 +2,11 @@
 
 Laravel + Livewire + Bootstrap auth UI & CRUD scaffolding.
 
+Requirements:
+
+- Laravel 8
+- NPM
+
 Features include:
 
 - auth UI scaffolding

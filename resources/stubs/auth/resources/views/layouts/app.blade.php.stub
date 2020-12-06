@@ -45,9 +45,6 @@
                         </li>
                         {{--crud command hook--}}
                         <li class="nav-item">
-                            <a href="{{ route('vehicles') }}" class="nav-link">{{ __('Vehicles') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('users') }}" class="nav-link">{{ __('Users') }}</a>
                         </li>
                     </ul>
