@@ -34,9 +34,13 @@ trait CreatesFiles
 
     public function createFiles()
     {
-        foreach ($this->filesystem->allFiles($this->stubDir) as $file) {
+        foreach ($this->filesystem->allFiles($this->stubDir, true) as $file) {
             $filePath = $this->replace(Str::replaceLast('.stub', '', $file->getRelativePathname()));
             $fileDir = $this->replace($file->getRelativePath());
+
+            if (Str::contains($filePath, '.DS_Store')) {
+                continue;
+            }
 
             if ($fileDir) {
                 $this->filesystem->ensureDirectoryExists($fileDir);

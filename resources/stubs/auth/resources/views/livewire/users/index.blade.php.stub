@@ -34,7 +34,7 @@
                                 wire:click="$emit('showUpdateUserModal', {{ $user->id }})">
                             <i class="far fa-edit"></i>
                         </button>
-                        @livewire('users.delete', ['user' => $user->id], key(uniqid()))
+                        @livewire('users.delete', ['user' => $user->id], key('delete-user-' . $user->id))
                     </div>
                 </div>
             </div>
