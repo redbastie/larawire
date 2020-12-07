@@ -33,7 +33,7 @@
                                 wire:click="$emit('showUpdateDummyPascalModal', {{ $dummyCamel->id }})">
                             <i class="far fa-edit"></i>
                         </button>
-                        @livewire('dummy-slugs.delete', ['dummyCamel' => $dummyCamel->id], key('delete-dummy-slug-' . $dummyCamel->id))
+                        @livewire('dummy-slugs.delete', ['dummyCamel' => $dummyCamel->id], key(uniqid()))
                     </div>
                 </div>
             </div>
