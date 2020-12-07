@@ -22,8 +22,10 @@
             <div class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
                     <div class="col-md mb-2 mb-md-0">
-                        <div>{{ $user->name }}</div>
-                        <div class="small text-muted">{{ $user->email }}</div>
+                        <ul class="list-unstyled mb-0">
+                            <li>{{ $user->name }}</li>
+                            <li class="small text-muted">{{ $user->email }}</li>
+                        </ul>
                     </div>
                     <div class="col-md-auto mx-n1">
                         <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Read') }}"
