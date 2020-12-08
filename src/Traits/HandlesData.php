@@ -18,4 +18,14 @@ trait HandlesData
     {
         return Validator::make($this->data, $rules)->validate();
     }
+
+    public function addArrayData($key)
+    {
+        $this->data[$key][] = [];
+    }
+
+    public function removeArrayData($key, $index)
+    {
+        unset($this->data[$key][$index]);
+    }
 }
