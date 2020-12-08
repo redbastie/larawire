@@ -29,23 +29,23 @@
                 @guest
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link">{{ __('Login') }}</a>
+                            <a href="{{ route('login') }}" class="nav-link">Login</a>
                         </li>
 
                         @if(Route::has('register'))
                             <li class="nav-item">
-                                <a href="{{ route('register') }}" class="nav-link">{{ __('Register') }}</a>
+                                <a href="{{ route('register') }}" class="nav-link">Register</a>
                             </li>
                         @endif
                     </ul>
                 @else
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link">{{ __('Home') }}</a>
+                            <a href="{{ url('/home') }}" class="nav-link">Home</a>
                         </li>
                         {{--crud command hook--}}
                         <li class="nav-item">
-                            <a href="{{ route('users') }}" class="nav-link">{{ __('Users') }}</a>
+                            <a href="{{ route('users') }}" class="nav-link">Users</a>
                         </li>
                     </ul>
 
@@ -56,7 +56,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button type="button" class="dropdown-item" data-toggle="modal" data-target="#profile-modal">
-                                    {{ __('Profile') }}
+                                    Profile
                                 </button>
                                 @livewire('auth.logout')
                             </div>

@@ -1,4 +1,4 @@
-@section('title', __('Users'))
+@section('title', 'Users')
 
 <div>
     <h1>@yield('title')</h1>
@@ -7,12 +7,12 @@
         <div class="col-md-auto mb-3">
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-search"></i></span></div>
-                <input type="search" class="form-control" placeholder="{{ __('Search') }}" wire:model.debounce.500ms="search">
+                <input type="search" class="form-control" placeholder="Search" wire:model.debounce.500ms="search">
             </div>
         </div>
         <div class="col-md-auto mb-3">
             <button type="button" class="btn btn-primary" wire:click="$emit('showCreateUserModal')">
-                <i class="far fa-plus"></i> {{ __('Create User') }}
+                <i class="far fa-plus"></i> Create User
             </button>
         </div>
     </div>
@@ -28,11 +28,11 @@
                         </ul>
                     </div>
                     <div class="col-md-auto mx-n1">
-                        <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Read') }}"
+                        <button type="button" class="btn btn-link px-1 py-0" title="Read"
                                 wire:click="$emit('showReadUserModal', {{ $user->id }})">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Update') }}"
+                        <button type="button" class="btn btn-link px-1 py-0" title="Update"
                                 wire:click="$emit('showUpdateUserModal', {{ $user->id }})">
                             <i class="far fa-edit"></i>
                         </button>
@@ -42,7 +42,7 @@
             </div>
         @empty
             <div class="list-group-item">
-                {{ __('No users to display.') }}
+                No users to display.
             </div>
         @endforelse
     </div>

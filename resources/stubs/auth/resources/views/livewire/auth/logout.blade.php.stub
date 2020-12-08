@@ -1,5 +1,5 @@
 <div>
     <button type="button" class="dropdown-item" wire:click="logout">
-        {{ __('Logout') }}
+        Logout
     </button>
 </div>

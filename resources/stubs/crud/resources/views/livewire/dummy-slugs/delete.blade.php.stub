@@ -1,6 +1,6 @@
 <div class="d-inline-block">
-    <button type="button" class="btn btn-link px-1 py-0" title="{{ __('Delete') }}"
-            onclick="confirm('{{ __('Delete this dummy title?') }}') || event.stopImmediatePropagation();"
+    <button type="button" class="btn btn-link px-1 py-0" title="Delete"
+            onclick="confirm('Delete this dummy title?') || event.stopImmediatePropagation();"
             wire:click="delete">
         <i class="far fa-trash-alt"></i>
     </button>

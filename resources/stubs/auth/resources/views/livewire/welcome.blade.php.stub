@@ -1,11 +1,11 @@
-@section('title', __('Welcome'))
+@section('title', 'Welcome')
 
 <div class="row justify-content-center">
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">@yield('title')</div>
             <div class="card-body">
-                {{ __('Welcome to your app!') }}
+                Welcome to the app!
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label>{{ __('Name') }}</label>
+    <label>Name</label>
     <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.defer="data.name">
     @error('name')<span class="invalid-feedback">{{ $message }}</span>@enderror
 </div>

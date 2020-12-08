@@ -30,14 +30,14 @@ class Login extends Component
         ]);
 
         if (RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
-            $this->addError($this->username, __('auth.throttle', [
+            $this->addError($this->username, trans('auth.throttle', [
                 'seconds' => RateLimiter::availableIn($this->throttleKey()),
             ]));
             return null;
         }
         else if (!Auth::attempt($validatedData, $this->data('remember'))) {
             RateLimiter::hit($this->throttleKey());
-            $this->addError($this->username, __('auth.failed'));
+            $this->addError($this->username, trans('auth.failed'));
             return null;
         }
 
