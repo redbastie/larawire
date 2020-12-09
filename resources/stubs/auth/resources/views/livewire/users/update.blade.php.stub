@@ -9,7 +9,7 @@
                 </button>
             </div>
             <form wire:submit.prevent="save">
-                <div class="modal-body">
+                <div class="modal-body pb-0">
                     @include('livewire.users.form')
                 </div>
                 <div class="modal-footer">

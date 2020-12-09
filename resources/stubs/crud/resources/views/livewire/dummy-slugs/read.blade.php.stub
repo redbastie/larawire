@@ -8,7 +8,7 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body pb-0">
                 @isset($dummyCamel)
                     <dl>
                         @foreach($dummyCamel->toArray() as $attribute => $value)
