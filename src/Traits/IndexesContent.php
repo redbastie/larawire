@@ -19,6 +19,6 @@ trait IndexesContent
 
     public function updatedSearch()
     {
-        $this->resetPage();
+        $this->perPage = 15;
     }
 }
