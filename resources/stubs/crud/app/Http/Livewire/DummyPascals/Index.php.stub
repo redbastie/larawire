@@ -13,7 +13,6 @@ class Index extends Component
     public $routeUri = '/dummy-slugs';
     public $routeName = 'dummy-slugs';
     public $routeMiddleware = 'auth';
-    public $search;
 
     public function render()
     {

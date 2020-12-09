@@ -5,6 +5,7 @@ namespace Redbastie\Larawire\Traits;
 trait IndexesContent
 {
     public $perPage = 15;
+    public $search;
 
     protected function getListeners()
     {
