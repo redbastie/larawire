@@ -24,7 +24,7 @@
                     <div class="col-md mb-2 mb-md-0">
                         {{ $dummyCamel->name }}
                     </div>
-                    <div class="col-md-auto mr-n2">
+                    <div class="col-md-auto mr-n1">
                         <button type="button" class="btn btn-link px-1 py-0" title="Read"
                                 wire:click="$emit('showReadDummyPascalModal', {{ $dummyCamel->id }})">
                             <i class="far fa-eye"></i>
