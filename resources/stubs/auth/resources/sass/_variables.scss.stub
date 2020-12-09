@@ -6,6 +6,7 @@ $font-size-base: 0.9rem;
 $border-radius: 0.5rem;
 $border-radius-sm: 0.5rem;
 $border-radius-lg: 0.5rem;
+$list-group-item-padding-x: 1rem;
 $custom-checkbox-indicator-border-radius: 0.25rem;
 $navbar-toggler-padding-x: 0;
 $navbar-toggler-padding-0: 0;
