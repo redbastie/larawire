@@ -4,11 +4,11 @@ namespace App\Http\Livewire\Users;
 
 use App\Models\User;
 use Livewire\Component;
-use Redbastie\Larawire\Traits\IndexesContent;
+use Redbastie\Larawire\Traits\DisplaysData;
 
 class Index extends Component
 {
-    use IndexesContent;
+    use DisplaysData;
 
     public $routeUri = '/users';
     public $routeName = 'users';

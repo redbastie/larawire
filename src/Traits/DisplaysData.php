@@ -2,7 +2,7 @@
 
 namespace Redbastie\Larawire\Traits;
 
-trait IndexesContent
+trait DisplaysData
 {
     public $perPage = 15;
     public $search;

@@ -4,11 +4,11 @@ namespace App\Http\Livewire\DummyPascals;
 
 use App\Models\DummyPascal;
 use Livewire\Component;
-use Redbastie\Larawire\Traits\IndexesContent;
+use Redbastie\Larawire\Traits\DisplaysData;
 
 class Index extends Component
 {
-    use IndexesContent;
+    use DisplaysData;
 
     public $routeUri = '/dummy-slugs';
     public $routeName = 'dummy-slugs';
