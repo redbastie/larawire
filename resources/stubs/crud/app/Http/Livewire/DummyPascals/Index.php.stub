@@ -4,23 +4,21 @@ namespace App\Http\Livewire\DummyPascals;
 
 use App\Models\DummyPascal;
 use Livewire\Component;
-use Livewire\WithPagination;
-use Redbastie\Larawire\Traits\UpdatesSearch;
+use Redbastie\Larawire\Traits\IndexesContent;
 
 class Index extends Component
 {
-    use UpdatesSearch, WithPagination;
+    use IndexesContent;
 
     public $routeUri = '/dummy-slugs';
     public $routeName = 'dummy-slugs';
     public $routeMiddleware = 'auth';
     public $search;
-    protected $listeners = ['$refresh'];
 
     public function render()
     {
         return view('livewire.dummy-slugs.index', [
-            'dummyCamels' => $this->query()->paginate(),
+            'dummyCamels' => $this->query()->paginate($this->perPage),
         ]);
     }
 

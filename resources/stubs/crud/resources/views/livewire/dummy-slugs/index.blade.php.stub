@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="list-group mb-3">
+    <div class="list-group">
         @forelse($dummyCamels as $dummyCamel)
             <div class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
@@ -42,10 +42,6 @@
                 No dummy titles to display.
             </div>
         @endforelse
-    </div>
-
-    <div class="overflow-auto">
-        {{ $dummyCamels->links('livewire::bootstrap') }}
     </div>
 
     @livewire('dummy-slugs.create')
