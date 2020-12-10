@@ -8,8 +8,8 @@ Livewire.on('hideModal', (id) => {
     $('#' + id).modal('hide');
 });
 
-window.onscroll = function () {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+$(window).scroll(function () {
+    if ($(window).scrollTop() + window.innerHeight === $(document).height()) {
         Livewire.emit('loadMore');
     }
-};
+});
