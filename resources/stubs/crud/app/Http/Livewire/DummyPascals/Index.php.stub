@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\DummyPascals;
 
 use App\Models\DummyPascal;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Redbastie\Larawire\Traits\DisplaysData;
 
@@ -26,7 +27,9 @@ class Index extends Component
         $query = DummyPascal::query();
 
         if ($this->search) {
-            $query->where('name', 'like', '%' . $this->search . '%');
+            $query->where(function (Builder $query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            });
         }
 
         return $query->orderBy('name');
