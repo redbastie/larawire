@@ -27,10 +27,6 @@
         @endforelse
     </div>
 
-    <div class="text-center mt-3" wire:loading.block="loadMore">
-        <i class="fal fa-spinner fa-spin"></i>
-    </div>
-
     @livewire('dummy-slugs.create')
     @livewire('dummy-slugs.read')
     @livewire('dummy-slugs.update')
