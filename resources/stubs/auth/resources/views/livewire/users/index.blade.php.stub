@@ -19,27 +19,7 @@
 
     <div class="list-group">
         @forelse($users as $user)
-            <div class="list-group-item list-group-item-action">
-                <div class="row align-items-center">
-                    <div class="col-md mb-2 mb-md-0">
-                        <ul class="list-unstyled mb-0">
-                            <li>{{ $user->name }}</li>
-                            <li class="small text-muted">{{ $user->email }}</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-auto mx-n1">
-                        <button type="button" class="btn btn-link px-1 py-0" title="Read"
-                                wire:click="$emit('showReadUserModal', {{ $user->id }})">
-                            <i class="far fa-eye"></i>
-                        </button>
-                        <button type="button" class="btn btn-link px-1 py-0" title="Update"
-                                wire:click="$emit('showUpdateUserModal', {{ $user->id }})">
-                            <i class="far fa-edit"></i>
-                        </button>
-                        @livewire('users.delete', ['user' => $user->id], key(uniqid()))
-                    </div>
-                </div>
-            </div>
+            @include('livewire.users.item')
         @empty
             <div class="list-group-item">
                 No users to display.
