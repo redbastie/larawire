@@ -27,6 +27,10 @@
         @endforelse
     </div>
 
+    <div class="text-center mt-3" wire:loading.block="loadMore">
+        <i class="fal fa-spinner fa-spin"></i>
+    </div>
+
     @livewire('users.create')
     @livewire('users.read')
     @livewire('users.update')
