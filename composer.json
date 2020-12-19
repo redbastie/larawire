@@ -13,6 +13,7 @@
     "require": {
         "barryvdh/laravel-ide-helper": "^2.0",
         "doctrine/dbal": "^2.0",
+        "jamesmills/laravel-timezone": "^1.9",
         "laravel/framework": "^8.0",
         "livewire/livewire": "^2.0"
     },
