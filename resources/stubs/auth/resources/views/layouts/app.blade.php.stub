@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,8 +14,8 @@
     @livewireStyles
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?version={{ config('app.version') }}">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-lg navbar-light flex-shrink-0">
         <div class="container">
             <a href="{{ url('/') }}" class="navbar-brand">
                 <i class="fab fa-laravel text-primary"></i> {{ config('app.name', 'Laravel') }}
@@ -31,7 +31,6 @@
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link">Login</a>
                         </li>
-
                         @if(Route::has('register'))
                             <li class="nav-item">
                                 <a href="{{ route('register') }}" class="nav-link">Register</a>
@@ -67,12 +66,36 @@
         </div>
     </nav>
 
-    <div class="container py-4">
+    <main class="container flex-shrink-0 py-4">
         {{ $slot }}
-    </div>
+    </main>
 
     @auth
         @livewire('auth.profile')
     @endauth
+
+    <footer class="mt-auto py-3">
+        <div class="container">
+            <div class="row small text-muted">
+                <div class="col">
+                    &copy;{{ date('Y') }} <a href="{{ url('/') }}" class="text-reset">{{ config('app.name') }}</a>
+                </div>
+                <div class="col-auto">
+                    <ul class="list-inline mb-0">
+                        @guest
+                            <li class="list-inline-item">
+                                <a href="{{ route('login') }}" class="text-reset">Login</a>
+                            </li>
+                            @if(Route::has('register'))
+                                <li class="list-inline-item">
+                                    <a href="{{ route('register') }}" class="text-reset">Register</a>
+                                </li>
+                            @endif
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
