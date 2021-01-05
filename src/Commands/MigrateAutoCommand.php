@@ -18,8 +18,7 @@ class MigrateAutoCommand extends Command
         Artisan::call('migrate' . ($this->option('fresh') ? ':fresh' : '') . ' --force');
 
         foreach ((new Filesystem)->allFiles(app_path('Models')) as $file) {
-            $className = 'App\\Models\\' . str_replace(['/', '.php'], ['\\', ''], $file->getRelativePathname());
-            $class = app($className);
+            $class = app('App\\Models\\' . str_replace(['/', '.php'], ['\\', ''], $file->getRelativePathname()));
 
             if (method_exists($class, 'migration')) {
                 if (Schema::hasTable($class->getTable())) {
