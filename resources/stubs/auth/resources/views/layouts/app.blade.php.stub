@@ -51,7 +51,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <i class="far fa-user-circle"></i> {{ Auth::user()->name }}
+                                <i class="fas fa-user-circle"></i> {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button type="button" class="dropdown-item" data-toggle="modal" data-target="#profile-modal">

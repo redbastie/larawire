@@ -15,9 +15,17 @@ Route::middleware('web')->group(function () {
             if (property_exists($class, 'routeUri')) {
                 $route = Route::get($class->routeUri, $namespace);
 
-                if (property_exists($class, 'routeDomain')) $route->domain($class->routeDomain);
-                if (property_exists($class, 'routeMiddleware')) $route->middleware($class->routeMiddleware);
-                if (property_exists($class, 'routeName')) $route->name($class->routeName);
+                if (property_exists($class, 'routeDomain')) {
+                    $route->domain($class->routeDomain);
+                }
+
+                if (property_exists($class, 'routeMiddleware')) {
+                    $route->middleware($class->routeMiddleware);
+                }
+
+                if (property_exists($class, 'routeName')) {
+                    $route->name($class->routeName);
+                }
             }
         }
     }

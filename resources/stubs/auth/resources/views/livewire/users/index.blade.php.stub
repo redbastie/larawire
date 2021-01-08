@@ -6,13 +6,13 @@
     <div class="row justify-content-between">
         <div class="col-md-auto mb-3">
             <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-search"></i></span></div>
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></div>
                 <input type="search" class="form-control" placeholder="Search" wire:model.debounce.500ms="search">
             </div>
         </div>
         <div class="col-md-auto mb-3">
             <button type="button" class="btn btn-primary" wire:click="$emit('showCreateUserModal')">
-                <i class="far fa-plus"></i> Create User
+                <i class="fas fa-plus"></i> Create User
             </button>
         </div>
     </div>
