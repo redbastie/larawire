@@ -5,7 +5,9 @@ namespace App\Http\Livewire\Auth;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Redbastie\Larawire\Rules\ReCaptchaRule;
 use Redbastie\Larawire\Traits\HandlesData;
 
 class Register extends Component
@@ -23,13 +25,21 @@ class Register extends Component
 
     public function register()
     {
-        $validatedData = $this->validateData([
+        $validator = Validator::make($this->data, [
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'confirmed'],
+            'recaptcha' => ['required', new ReCaptchaRule],
         ]);
 
-        $user = User::create($validatedData);
+        if ($validator->fails()) {
+            $this->setErrorBag($validator->errors());
+            $this->emit('resetReCaptcha');
+
+            return null;
+        }
+
+        $user = User::create($validator->getData());
 
         Auth::login($user, true);
 

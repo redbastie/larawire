@@ -33,11 +33,14 @@ class Login extends Component
             $this->addError($this->username, trans('auth.throttle', [
                 'seconds' => RateLimiter::availableIn($this->throttleKey()),
             ]));
+
             return null;
         }
         else if (!Auth::attempt($validatedData, $this->data('remember'))) {
             RateLimiter::hit($this->throttleKey());
+
             $this->addError($this->username, trans('auth.failed'));
+
             return null;
         }
 
@@ -46,6 +49,6 @@ class Login extends Component
 
     public function throttleKey()
     {
-        return $this->data[$this->username] . '|' . request()->ip();
+        return $this->data($this->username) . '|' . request()->ip();
     }
 }
