@@ -9,12 +9,18 @@ Requirements:
 
 Features include:
 
-- auth UI scaffolding
-- CRUD scaffolding
-- automatic routing
-- automatic migrations
-- user profile & CRUD
+- auth UI & CRUD scaffolding
+- automatic routing & migrations
+- user profile, timezones, & CRUD
+- infinite scrolling & reCAPTCHA
 - & more
+
+Links:
+
+- Tutorial: [YouTube Video](https://www.youtube.com/watch?v=Tr_r3dFEDi0)
+- Support: [GitHub Issues](https://github.com/redbastie/larawire/issues)
+- Contribute: [GitHub Pulls](https://github.com/redbastie/larawire/pulls)
+- Donate: [PayPal](https://www.paypal.com/paypalme2/kjjdion)
 
 ## Installation
 
