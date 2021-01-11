@@ -19,8 +19,7 @@ class Create extends Component
 
     public function showCreateUserModal()
     {
-        $this->data = [];
-
+        $this->resetData();
         $this->emit('showModal', 'create-user-modal');
     }
 

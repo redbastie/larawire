@@ -19,6 +19,11 @@ trait HandlesData
         return Validator::make($this->data, $rules)->validate();
     }
 
+    public function resetData()
+    {
+        $this->data = [];
+    }
+
     public function addArrayData($key)
     {
         $this->data[$key][] = [];

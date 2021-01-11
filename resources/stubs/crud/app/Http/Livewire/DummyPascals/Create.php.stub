@@ -19,8 +19,7 @@ class Create extends Component
 
     public function showCreateDummyPascalModal()
     {
-        $this->data = [];
-
+        $this->resetData();
         $this->emit('showModal', 'create-dummy-slug-modal');
     }
 
