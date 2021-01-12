@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Livewire\DummyPascals;
+
+use App\Models\DummyPascal;
+use Livewire\Component;
+use Redbastie\Larawire\Traits\HandlesData;
+
+class Save extends Component
+{
+    use HandlesData;
+
+    public $dummyCamel;
+    protected $listeners = ['showSaveDummyPascalModal'];
+
+    public function render()
+    {
+        return view('livewire.dummy-slugs.save');
+    }
+
+    public function showSaveDummyPascalModal(DummyPascal $dummyCamel = null)
+    {
+        $this->dummyCamel = $dummyCamel ?? new DummyPascal;
+        $this->data = $dummyCamel->toArray();
+
+        $this->emit('showModal', 'save-dummy-slug-modal');
+    }
+
+    public function save()
+    {
+        $validatedData = $this->validateData($this->dummyCamel->rules());
+
+        if ($this->dummyCamel && $this->dummyCamel->exists) {
+            $this->dummyCamel->update($validatedData);
+        }
+        else {
+            $this->dummyCamel->create($validatedData);
+        }
+
+        $this->emitUp('$refresh');
+        $this->emit('hideModal', 'save-dummy-slug-modal');
+    }
+}
