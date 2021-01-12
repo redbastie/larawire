@@ -26,11 +26,11 @@ trait HandlesData
 
     public function addArrayData($key)
     {
-        Arr::set($this->data, $key, []);
+        $this->data[$key][] = [];
     }
 
-    public function removeArrayData($key)
+    public function removeArrayData($key, $index)
     {
-        Arr::forget($this->data, $key);
+        unset($this->data[$key][$index]);
     }
 }
