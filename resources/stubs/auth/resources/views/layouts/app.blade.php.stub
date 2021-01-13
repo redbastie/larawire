@@ -17,7 +17,7 @@
 <body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-light flex-shrink-0">
         <div class="container">
-            <a href="{{ url('/') }}" class="navbar-brand">
+            <a href="{{ route('welcome') }}" class="navbar-brand">
                 <i class="fab fa-laravel text-primary"></i> {{ config('app.name', 'Laravel') }}
             </a>
 
@@ -40,7 +40,7 @@
                 @else
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                            <a href="{{ route('home') }}" class="nav-link">Home</a>
                         </li>
                         {{--crud command hook--}}
                         <li class="nav-item">
@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row small text-muted">
                 <div class="col">
-                    &copy;{{ date('Y') }} <a href="{{ url('/') }}" class="text-reset">{{ config('app.name') }}</a>
+                    &copy;{{ date('Y') }} <a href="{{ route('welcome') }}" class="text-reset">{{ config('app.name') }}</a>
                 </div>
                 <div class="col-auto">
                     <ul class="list-inline mb-0">
