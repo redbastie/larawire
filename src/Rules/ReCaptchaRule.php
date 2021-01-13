@@ -17,6 +17,6 @@ class ReCaptchaRule implements Rule
 
     public function message()
     {
-        return trans('The reCAPTCHA response is invalid.');
+        return trans('The recaptcha response is invalid.');
     }
 }
