@@ -4,7 +4,7 @@ namespace Redbastie\Larawire\Traits;
 
 trait DisplaysData
 {
-    public $perPage = 15;
+    public $perPage = 20;
     public $search;
     public $loadMore = true;
 
@@ -15,7 +15,7 @@ trait DisplaysData
 
     public function loadMore()
     {
-        $this->perPage += 15;
+        $this->perPage += 20;
 
         if ($this->perPage >= $this->query()->count()) {
             $this->loadMore = false;
@@ -26,6 +26,6 @@ trait DisplaysData
 
     public function updatedSearch()
     {
-        $this->perPage = 15;
+        $this->perPage = 20;
     }
 }
